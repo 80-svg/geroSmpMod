@@ -46,7 +46,7 @@ jobs:
           git add gradle.properties
           git commit -m "chore: bump mod version to ${{ env.NEW_VERSION }} [skip ci]"
           git tag -a "v${{ env.NEW_VERSION }}" -m "Release v${{ env.NEW_VERSION }}"
-          git push origin main --tags
+          git push origin master --tags
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4
