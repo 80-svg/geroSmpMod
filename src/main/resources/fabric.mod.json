@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "smp2026gero",
+  "version": "${version}",
+  "name": "smp2026gero",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/smp2026gero/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.makis.smp2026gero.client.Smp2026geroDataGenerator"
+    ],
+    "client": [
+      "org.makis.smp2026gero.client.Smp2026geroClient"
+    ],
+    "main": [
+      "org.makis.smp2026gero.Smp2026gero"
+    ]
+  },
+  "mixins": [
+    "smp2026gero.mixins.json",
+    {
+      "config": "smp2026gero.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
