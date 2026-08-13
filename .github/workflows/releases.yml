@@ -3,7 +3,7 @@ name: Auto Increment & Release Mod
 on:
   push:
     branches:
-      - main
+      - master
     paths-ignore:
       - 'gradle.properties' # Prevents infinite workflow loops when committing back
 
