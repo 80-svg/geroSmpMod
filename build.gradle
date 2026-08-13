@@ -14,7 +14,7 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        "smp2026gero" {
+        "gerosmpmod" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }

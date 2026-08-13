@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "smp2026gero",
+  "id": "gerosmpmod",
   "version": "${version}",
-  "name": "smp2026gero",
+  "name": "gerosmpmod",
   "description": "",
   "authors": [],
   "contact": {},
   "license": "All-Rights-Reserved",
-  "icon": "assets/smp2026gero/icon.png",
+  "icon": "assets/gerosmpmod/icon.png",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "org.makis.smp2026gero.client.Smp2026geroDataGenerator"
+      "org.makis.gerosmpmod.client.GeroSmpModDataGenerator"
     ],
     "client": [
-      "org.makis.smp2026gero.client.Smp2026geroClient"
+      "org.makis.gerosmpmod.client.GeroSmpModClient"
     ],
     "main": [
-      "org.makis.smp2026gero.Smp2026gero"
+      "org.makis.gerosmpmod.GeroSmpMod"
     ]
   },
   "mixins": [
-    "smp2026gero.mixins.json",
+    "gerosmpmod.mixins.json",
     {
-      "config": "smp2026gero.client.mixins.json",
+      "config": "gerosmpmod.client.mixins.json",
       "environment": "client"
     }
   ],

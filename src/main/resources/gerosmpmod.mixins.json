@@ -1,9 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "org.makis.smp2026gero.mixin.client",
+  "package": "org.makis.gerosmpmod.mixin",
   "compatibilityLevel": "JAVA_25",
-  "client": [
+  "mixins": [
+    "OnDeathMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,4 +1,4 @@
-package org.makis.smp2026gero;
+package org.makis.gerosmpmod;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
@@ -28,10 +28,10 @@ public class ModItems {
                 .register((creativeTab) -> creativeTab.accept(item));
     }
     public static final ResourceKey<CreativeModeTab> MAKIS_TAB_KEY = ResourceKey.create(Registries.CREATIVE_MODE_TAB,
-            Identifier.fromNamespaceAndPath(Smp2026gero.MOD_ID, "makis_tab"));
+            Identifier.fromNamespaceAndPath(GeroSmpMod.MOD_ID, "makis_tab"));
     public static final CreativeModeTab MAKIS_TAB = Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, MAKIS_TAB_KEY,
             CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
-                    .title(Component.translatable("itemGroup." + Smp2026gero.MOD_ID + ".items"))
+                    .title(Component.translatable("itemGroup." + GeroSmpMod.MOD_ID))
                     .icon(() -> {
                         assert ModItems.KETAMINE != null;
                         return new ItemStack(ModItems.KETAMINE);

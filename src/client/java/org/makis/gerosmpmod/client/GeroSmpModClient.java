@@ -1,8 +1,8 @@
-package org.makis.smp2026gero.client;
+package org.makis.gerosmpmod.client;
 
 import net.fabricmc.api.ClientModInitializer;
 
-public class Smp2026geroClient implements ClientModInitializer {
+public class GeroSmpModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
