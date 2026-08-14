@@ -11,27 +11,29 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.makis.gerosmpmod.commands.BountyCommand;
+import org.makis.gerosmpmod.commands.TpaCommands;
 
 public class GeroSmpMod implements ModInitializer {
-    public static final Logger LOGGER = LogManager.getLogger("smpmodmak");
+    public static final Logger LOGGER = LogManager.getLogger("gerosmpmod");
     public static final String MOD_ID = "gerosmpmod";
     public static final String GITHUB_REPO = "80-svg/geroSmpMod";
     @Override
     public void onInitialize() {
         ModItems.initialize();
         ModAttachments.initialize();
+        ModSounds.initialize();
         CommandRegistrationCallback.EVENT.register(((dispatcher, buildContext, selection) -> {
             BountyCommand.register(dispatcher);
+            TpaCommands.register(dispatcher);
         }));
         UseBlockCallback.EVENT.register(((player, level, hand, hitResult) -> {
             BlockState state = level.getBlockState(hitResult.getBlockPos());
 
             if (state.is(Blocks.END_PORTAL_FRAME) && player.getItemInHand(hand).getItem() == Items.ENDER_EYE) {
-                if (!level.isClientSide()) {
-                    player.sendSystemMessage(Component.literal("End is disabled."));
-                }
+                player.sendSystemMessage(Component.literal("End is disabled."));
+                return InteractionResult.FAIL;
             }
-            return InteractionResult.FAIL;
+            return InteractionResult.PASS;
         }));
     }
 }

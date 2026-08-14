@@ -11,11 +11,13 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
 import java.util.function.Function;
 
 public class ModItems {
     public static void initialize() {
         addItemToCreativeModTab(KETAMINE, MAKIS_TAB_KEY);
+        addItemToCreativeModTab(COIN_SILVER, MAKIS_TAB_KEY);
     }
     public static Item register(ResourceKey<Item> itemKey, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         Item item = itemFactory.apply(settings.setId(itemKey));
@@ -39,4 +41,9 @@ public class ModItems {
                     .displayItems(((parameters, output) -> {}))
                     .build());
     public static final Item KETAMINE = register(ModItemIDs.KETAMINE, Item::new, new Item.Properties());
+    public static final Item COIN_SILVER = register(ModItemIDs.COIN_SILVER, Item::new, new Item.Properties());
+    public static final List<Item> SIMPLE_ITEMS = List.of(
+            KETAMINE,
+            COIN_SILVER
+    );
 }

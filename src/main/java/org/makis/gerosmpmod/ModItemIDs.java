@@ -10,4 +10,5 @@ public class ModItemIDs {
         return ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(GeroSmpMod.MOD_ID, name));
     }
     public static final ResourceKey<Item> KETAMINE = create("ketamine");
+    public static final ResourceKey<Item> COIN_SILVER  = create("coin_silver");
 }

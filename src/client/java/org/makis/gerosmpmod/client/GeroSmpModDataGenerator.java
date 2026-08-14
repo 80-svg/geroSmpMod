@@ -8,5 +8,7 @@ public class GeroSmpModDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+        pack.addProvider(ModModelGenerator::new);
+//        pack.addProvider(org.makis.gerosmpmod.datagen.RecipeDisablerDataGenerator::new);
     }
 }
