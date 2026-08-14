@@ -69,9 +69,10 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
-    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    if (JavaVersion.current() < javaVersion) {
-        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    // Configure Java toolchain to explicitly request Java 25 for compilation. Gradle will
+    // download and use the requested toolchain JVM if configured to auto-download (see gradle.properties).
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
     }
     // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
     // if it is present.
