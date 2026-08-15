@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
-
+// Did it commit? (Yeah future me will be confused by this comment)
 public class RecipeDisablerDataGenerator implements DataProvider {
 
     private final FabricPackOutput output;
