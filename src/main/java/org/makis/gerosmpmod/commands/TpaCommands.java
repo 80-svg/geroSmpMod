@@ -11,7 +11,7 @@ import net.minecraft.server.level.ServerPlayer;
 
 public class TpaCommands {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(Commands.literal("tpa").then(Commands.argument("target", EntityArgument.player())).executes(TpaCommands::TpaCommand));
+        dispatcher.register(Commands.literal("tpa").then(Commands.argument("target", EntityArgument.player()).executes(TpaCommands::TpaCommand)));
     }
     public static int TpaCommand(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
         ServerPlayer player = ctx.getSource().getPlayer();

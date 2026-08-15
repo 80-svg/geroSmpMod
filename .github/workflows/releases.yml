@@ -62,6 +62,9 @@ jobs:
           java -version
           ./gradlew --version
 
+      - name: Run Data Generation
+        run: ./gradlew runDatagen
+
       - name: Build Mod Jar
         run: ./gradlew build
 

@@ -4,7 +4,8 @@
   "package": "org.makis.gerosmpmod.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "OnDeathMixin"
+    "OnDeathMixin",
+    "VillagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

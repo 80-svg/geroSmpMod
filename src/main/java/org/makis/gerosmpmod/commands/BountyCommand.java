@@ -43,6 +43,7 @@ public class BountyCommand {
     private static int helpBounty(CommandContext<CommandSourceStack>  context) throws CommandSyntaxException {
         final CommandSourceStack source = context.getSource();
         source.sendSuccess(() -> Component.literal("/setbounty <player> <amount>: Set a bounty on an online player"), false);
+        source.sendSuccess(() -> Component.literal("/bounties: Lists bounties that are available"), false);
         return 1;
     }
     private static int listBounties(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
