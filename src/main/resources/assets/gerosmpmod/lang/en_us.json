@@ -1,5 +1,7 @@
 {
   "item.gerosmpmod.ketamine": "Ketamine",
   "itemGroup.gerosmpmod": "Gero Mod",
-  "item.gerosmpmod.coin_silver": "Silver coin"
+  "item.gerosmpmod.coin_silver": "Silver coin",
+  "item.gerosmpmod.one_punch_sword": "One hit sword",
+  "effect.gerosmpmod.khole": "K-Holed"
 }

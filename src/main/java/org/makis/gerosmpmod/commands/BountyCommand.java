@@ -4,11 +4,13 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import org.makis.gerosmpmod.ModAttachments;
 
@@ -30,11 +32,12 @@ public class BountyCommand {
         ServerPlayer target = EntityArgument.getPlayer(context, "target");
         int amount = IntegerArgumentType.getInteger(context, "amount");
         boolean success = deductDiamonds(player, amount);
+        MinecraftServer server = context.getSource().getServer();
         if (success) {
             int current = target.getAttachedOrElse(ModAttachments.BOUNTY_AMOUNT, 0);
             int newBounty = current + amount;
             target.setAttached(ModAttachments.BOUNTY_AMOUNT, newBounty);
-            player.sendSystemMessage(Component.literal("Success! Player's bounty is now: " + newBounty).withColor(TextColor.GREEN));
+            server.getPlayerList().broadcastSystemMessage(Component.literal(player.getName().getString() + " added " + amount + " to " + target.getName().getString() + " bounty, total is " + newBounty).withStyle(ChatFormatting.RED), false);
         } else {
             player.sendSystemMessage(Component.literal("Insufficient Diamonds.").withColor(TextColor.RED));
         }

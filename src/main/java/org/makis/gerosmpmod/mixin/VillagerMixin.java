@@ -1,11 +1,9 @@
 package org.makis.gerosmpmod.mixin;
 
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.entity.player.Player;
-import org.makis.gerosmpmod.GeroSmpMod;
 import org.makis.gerosmpmod.ModGamerules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

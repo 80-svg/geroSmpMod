@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "gerosmpmod:item/one_punch_sword"
+  }
+}

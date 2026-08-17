@@ -12,16 +12,19 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.makis.gerosmpmod.commands.BountyCommand;
+import org.makis.gerosmpmod.commands.BroadcastCommand;
+import org.makis.gerosmpmod.commands.SpawnCommand;
 import org.makis.gerosmpmod.commands.TpaCommands;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class GeroSmpMod implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("gerosmpmod");
     public static final String MOD_ID = "gerosmpmod";
     public static final String GITHUB_REPO = "80-svg/geroSmpMod";
-    public static final UUID championUUID = UUID.fromString("e2b22cb0-3621-4d44-8a1b-2449d1ca49ce");
+    public static Random random = new Random();
     public static final List<Item> DIAMOND_ITEM_TYPE = List.of(
             Items.DIAMOND_BOOTS,
             Items.DIAMOND_LEGGINGS,
@@ -38,9 +41,13 @@ public class GeroSmpMod implements ModInitializer {
         ModAttachments.initialize();
         ModSounds.initialize();
         ModGamerules.initialize();
+        ModPotions.registerPotions();
+        ModPotionRecipes.registerPotionRecipes();
         CommandRegistrationCallback.EVENT.register(((dispatcher, buildContext, selection) -> {
             BountyCommand.register(dispatcher);
             TpaCommands.register(dispatcher);
+            SpawnCommand.register(dispatcher);
+            BroadcastCommand.register(dispatcher);
         }));
         UseBlockCallback.EVENT.register(((player, level, hand, hitResult) -> {
             BlockState state = level.getBlockState(hitResult.getBlockPos());
