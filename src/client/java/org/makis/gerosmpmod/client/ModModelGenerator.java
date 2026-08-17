@@ -7,6 +7,7 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.world.item.Item;
 import org.jspecify.annotations.NonNull;
+import org.makis.gerosmpmod.ModItemIDs;
 import org.makis.gerosmpmod.ModItems;
 
 public class ModModelGenerator extends FabricModelProvider {
@@ -23,5 +24,6 @@ public class ModModelGenerator extends FabricModelProvider {
     public void generateItemModels(@NonNull ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(ModItems.COIN_SILVER, ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.KETAMINE, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.PLAYER_CHEST_LOCK, ModelTemplates.FLAT_ITEM);
     }
 }

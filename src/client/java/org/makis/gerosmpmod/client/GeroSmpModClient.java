@@ -4,9 +4,9 @@ import net.fabricmc.api.ClientModInitializer;
 import org.makis.gerosmpmod.UpdateChecker;
 
 public class GeroSmpModClient implements ClientModInitializer {
-
+    public static final boolean UPDATES_ENABLED = true;
     @Override
     public void onInitializeClient() {
-        UpdateChecker.checkForUpdates();
+        if (UPDATES_ENABLED) UpdateChecker.checkForUpdates();
     }
 }

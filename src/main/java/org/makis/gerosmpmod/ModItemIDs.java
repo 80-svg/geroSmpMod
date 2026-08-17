@@ -12,4 +12,5 @@ public class ModItemIDs {
     public static final ResourceKey<Item> KETAMINE = create("ketamine");
     public static final ResourceKey<Item> COIN_SILVER  = create("coin_silver");
     public static final ResourceKey<Item> ONE_PUNCH_SWORD = create("one_punch_sword");
+    public static final ResourceKey<Item> PLAYER_CHEST_LOCK = create("player_chest_lock");
 }

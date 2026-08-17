@@ -21,6 +21,7 @@ public class ModItems {
         addItemToCreativeModTab(KETAMINE, MAKIS_TAB_KEY);
         addItemToCreativeModTab(COIN_SILVER, MAKIS_TAB_KEY);
         addItemToCreativeModTab(ONE_PUNCH_SWORD,  MAKIS_TAB_KEY);
+        addItemToCreativeModTab(PLAYER_CHEST_LOCK,  MAKIS_TAB_KEY);
     }
     public static Item register(ResourceKey<Item> itemKey, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         Item item = itemFactory.apply(settings.setId(itemKey));
@@ -46,8 +47,5 @@ public class ModItems {
     public static final Item KETAMINE = register(ModItemIDs.KETAMINE, Item::new, new Item.Properties());
     public static final Item COIN_SILVER = register(ModItemIDs.COIN_SILVER, Item::new, new Item.Properties());
     public static final Item ONE_PUNCH_SWORD = register(ModItemIDs.ONE_PUNCH_SWORD, onePunchSwordItem::new, new onePunchSwordItem.Properties().sword(ToolMaterial.IRON, 1f, 1f));
-    public static final List<Item> SIMPLE_ITEMS = List.of(
-            KETAMINE,
-            COIN_SILVER
-    );
+    public static final Item PLAYER_CHEST_LOCK = register(ModItemIDs.PLAYER_CHEST_LOCK, Item::new, new Item.Properties());
 }

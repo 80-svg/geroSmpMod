@@ -3,5 +3,6 @@
   "itemGroup.gerosmpmod": "Gero Mod",
   "item.gerosmpmod.coin_silver": "Silver coin",
   "item.gerosmpmod.one_punch_sword": "One hit sword",
-  "effect.gerosmpmod.khole": "K-Holed"
+  "effect.gerosmpmod.khole": "K-Holed",
+  "item.gerosmpmod.player_chest_lock": "Player lock"
 }
