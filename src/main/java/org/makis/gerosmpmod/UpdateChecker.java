@@ -2,7 +2,6 @@ package org.makis.gerosmpmod;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.mojang.authlib.minecraft.client.MinecraftClient;
 import net.fabricmc.loader.api.FabricLoader;
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 
