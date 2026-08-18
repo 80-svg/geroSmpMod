@@ -13,8 +13,9 @@ import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import org.makis.gerosmpmod.ModAttachments;
+import org.makis.gerosmpmod.ModItems;
 
-import static org.makis.gerosmpmod.commonMethods.deductDiamonds;
+import static org.makis.gerosmpmod.commonMethods.deductItem;
 
 public class BountyCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -31,7 +32,7 @@ public class BountyCommand {
         ServerPlayer player = context.getSource().getPlayerOrException();
         ServerPlayer target = EntityArgument.getPlayer(context, "target");
         int amount = IntegerArgumentType.getInteger(context, "amount");
-        boolean success = deductDiamonds(player, amount);
+        boolean success = deductItem(player, amount, ModItems.COIN_SILVER);
         MinecraftServer server = context.getSource().getServer();
         if (success) {
             int current = target.getAttachedOrElse(ModAttachments.BOUNTY_AMOUNT, 0);
@@ -39,7 +40,7 @@ public class BountyCommand {
             target.setAttached(ModAttachments.BOUNTY_AMOUNT, newBounty);
             server.getPlayerList().broadcastSystemMessage(Component.literal(player.getName().getString() + " added " + amount + " to " + target.getName().getString() + " bounty, total is " + newBounty).withStyle(ChatFormatting.RED), false);
         } else {
-            player.sendSystemMessage(Component.literal("Insufficient Diamonds.").withColor(TextColor.RED));
+            player.sendSystemMessage(Component.literal("Insufficient Coins.").withColor(TextColor.RED));
         }
         return 1;
     }

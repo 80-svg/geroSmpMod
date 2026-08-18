@@ -1,11 +1,11 @@
 package org.makis.gerosmpmod;
 
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 
 public class commonMethods {
-    public static boolean deductDiamonds(ServerPlayer player, int amount) {
+    public static boolean deductItem(ServerPlayer player, int amount, Item item) {
         if (amount <= 0) {
             return false;
         }
@@ -13,7 +13,7 @@ public class commonMethods {
         int total = 0;
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
             ItemStack stack = player.getInventory().getItem(i);
-            if (stack.is(Items.DIAMOND)) {
+            if (stack.is(item)) {
                 total += stack.getCount();
             }
         }
@@ -23,15 +23,7 @@ public class commonMethods {
         int toRemove = amount;
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
             ItemStack stack = player.getInventory().getItem(i);
-            if (stack.is(Items.DIAMOND)) {
-//                int count = stack.getCount();
-//                if (count <= toRemove) {
-//                    toRemove -= count;
-//                    player.getInventory().removeItem(stack);
-//                } else {
-//                    stack.shrink(toRemove);
-//                    toRemove = 0;
-//                }
+            if (stack.is(item)) {
                 int removeFromThis = Math.min(stack.getCount(), toRemove);
                 stack.shrink(removeFromThis);
                 toRemove -= removeFromThis;

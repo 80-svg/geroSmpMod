@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": "gerosmpmod:coin_silver",
+    "G": "minecraft:gold_ingot",
+    "N": "minecraft:netherite_scrap"
+  },
+  "pattern": [
+    "SSS",
+    "GGG",
+    "NNN"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:netherite_ingot"
+  }
+}
