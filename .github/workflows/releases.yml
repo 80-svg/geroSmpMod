@@ -19,6 +19,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Increment Patch Version in gradle.properties
         id: increment_version
         run: |
@@ -31,9 +32,6 @@ jobs:
           NEW_PATCH=$((PATCH + 1))
           NEW_VERSION="$MAJOR.$MINOR.$NEW_PATCH"
           echo "New version: $NEW_VERSION"
-
-          # Update gradle.properties. Nope
-#          sed -i "s/mod_version=$CURRENT_VERSION/mod_version=$NEW_VERSION/g" gradle.properties
 
           # Set output and environment variables
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
