@@ -19,7 +19,6 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Increment Patch Version in gradle.properties
         id: increment_version
         run: |
