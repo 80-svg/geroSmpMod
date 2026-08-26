@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.permissions.PermissionLevel;
 import net.minecraft.world.item.Item;
@@ -17,6 +18,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HexFormat;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.Executors;
 
@@ -72,7 +74,7 @@ public class commonMethods {
             server.execute(() -> {
                 new Thread(() -> {
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(1000L * Objects.requireNonNull(server.getLevel(ServerLevel.OVERWORLD)).getGameRules().get(ModGamerules.MODVER_TIMEOUT_COOLDOWN_SECS));
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                         throw new RuntimeException(e);

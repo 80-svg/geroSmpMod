@@ -11,4 +11,8 @@ public class ModGamerules {
             .forBoolean(false)
             .category(GameRuleCategory.MISC)
             .buildAndRegister(Identifier.fromNamespaceAndPath(GeroSmpMod.MOD_ID, "enable_villagers"));
+    public static final GameRule<Integer> MODVER_TIMEOUT_COOLDOWN_SECS = GameRuleBuilder
+            .forInteger(2)
+            .category(GameRuleCategory.MISC)
+            .buildAndRegister(Identifier.fromNamespaceAndPath(GeroSmpMod.MOD_ID, "timeout_secs"));
 }

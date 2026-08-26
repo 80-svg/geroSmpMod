@@ -17,7 +17,7 @@ public class SpawnCommand {
     private static int executeSpawnCommand(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
         ServerPlayer player = context.getSource().getPlayer();
         ServerLevel overworld = context.getSource().getServer().getLevel(ServerLevel.OVERWORLD);
-        Vec3 spawnPos = new Vec3(-25.0, 80.0, -23.0);
+        Vec3 spawnPos = new Vec3(-25.0, 80.5, -23.0);
         assert player != null;
         if (overworld != null) {
 //            player.teleportTo(overworld, -25.0, 80.0, -23.0, java.util.Collections.emptySet(), player.getYRot(), player.getXRot(), true);
