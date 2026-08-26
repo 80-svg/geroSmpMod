@@ -42,10 +42,7 @@ public class UpdateChecker {
                    String latestTag = json.get("tag_name").getAsString().replaceFirst("^[vV]", "");
                    String releaseUrl = json.get("html_url").getAsString();
 
-                   String currentVersion = FabricLoader.getInstance()
-                           .getModContainer(GeroSmpMod.MOD_ID)
-                           .map(c -> c.getMetadata().getVersion().getFriendlyString())
-                           .orElse("0.0.0");
+                   String currentVersion = GeroSmpMod.getModVersion();
 
                    boolean newer = isNewerVersion(currentVersion, latestTag);
                    GeroSmpMod.LOGGER.info("Update comparison: current={}, latest={}, newer={}", currentVersion, latestTag, newer);

@@ -1,7 +1,10 @@
 package org.makis.gerosmpmod.datagen;
 
 import com.google.gson.JsonObject;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.metadata.ModOrigin;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -12,6 +15,8 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import org.makis.gerosmpmod.GeroSmpMod;
+import org.makis.gerosmpmod.ModVersionPayload;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +57,6 @@ public class RecipeDisablerDataGenerator implements DataProvider {
             return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
         });
     }
-
     private JsonObject createDisabledRecipeJson() {
         JsonObject json = new JsonObject();
         json.addProperty("type", "minecraft:crafting_shaped");
@@ -66,7 +70,19 @@ public class RecipeDisablerDataGenerator implements DataProvider {
 
         return json;
     }
-
+    public static void registerClientVersionEvent() {
+        ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
+            String version = GeroSmpMod.getModVersion();
+            List<String> mods = FabricLoader.getInstance()
+                    .getAllMods()
+                    .stream()
+                    .filter(mod -> mod.getOrigin().getKind() == ModOrigin.Kind.PATH)
+                    .filter(mod -> !mod.getMetadata().getId().startsWith("fabric-"))
+                    .map(mod -> mod.getMetadata().getName())
+                    .toList();
+            sender.sendPacket(new ModVersionPayload.VersionPayload(version, mods));
+        });
+    }
     @Override
     public String getName() {
         return "Recipe Disabler Generator";

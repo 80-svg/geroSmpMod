@@ -12,6 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.Items;
 import org.makis.gerosmpmod.ModAttachments;
 import org.makis.gerosmpmod.ModItems;
 
@@ -32,7 +33,7 @@ public class BountyCommand {
         ServerPlayer player = context.getSource().getPlayerOrException();
         ServerPlayer target = EntityArgument.getPlayer(context, "target");
         int amount = IntegerArgumentType.getInteger(context, "amount");
-        boolean success = deductItem(player, amount, ModItems.COIN_SILVER);
+        boolean success = deductItem(player, amount, Items.DIAMOND);
         MinecraftServer server = context.getSource().getServer();
         if (success) {
             int current = target.getAttachedOrElse(ModAttachments.BOUNTY_AMOUNT, 0);

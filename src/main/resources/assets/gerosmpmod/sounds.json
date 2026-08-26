@@ -2,5 +2,9 @@
   "kaltses": {
     "subtitle": "sound.gerosmpmod.kaltses",
     "sounds": ["gerosmpmod:kaltses"]
+  },
+  "wazzup-beijing": {
+    "subtitle": "sound.gerosmpmod.wazzup-beijing",
+    "sounds": ["gerosmpmod:wazzup-beijing"]
   }
 }
