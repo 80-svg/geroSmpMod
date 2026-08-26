@@ -4,5 +4,8 @@
   "item.gerosmpmod.coin_silver": "Silver coin",
   "item.gerosmpmod.one_punch_sword": "One hit sword",
   "effect.gerosmpmod.khole": "K-Holed",
-  "item.gerosmpmod.player_chest_lock": "Player lock"
+  "item.gerosmpmod.player_chest_lock": "Player lock",
+  "item.minecraft.potion.effect.esketamine": "Potion of esketamine",
+  "item.minecraft.splash_potion.effect.esketamine": "Splash potion of esketamine",
+  "item.minecraft.lingering_potion.effect.esketamine": "Lingering potion of esketamine"
 }

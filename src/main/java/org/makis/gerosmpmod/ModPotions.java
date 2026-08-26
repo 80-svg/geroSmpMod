@@ -9,9 +9,9 @@ import net.minecraft.world.item.alchemy.Potion;
 
 public class ModPotions {
     public static final Holder<Potion> ESKETAMINE = registerPotion("esketamine",
-            new Potion("esketamine"), new MobEffectInstance(ModEffects.KHole, 60 * 15, 1));
+            new Potion("esketamine", new MobEffectInstance(ModEffects.KHole, 60 * 15, 1)));
 
-    private static Holder<Potion> registerPotion(String name, Potion potion, MobEffectInstance mobEffectInstance) {
+    private static Holder<Potion> registerPotion(String name, Potion potion) {
         return Registry.registerForHolder(BuiltInRegistries.POTION, Identifier.fromNamespaceAndPath(GeroSmpMod.MOD_ID, name), potion);
     }
     public static void registerPotions() {

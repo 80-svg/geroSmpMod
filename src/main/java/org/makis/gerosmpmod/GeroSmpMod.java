@@ -76,6 +76,10 @@ public class GeroSmpMod implements ModInitializer {
         }));
         // Custom packet payloads
         PayloadTypeRegistry.serverboundPlay().register(ModVersionPayload.VersionPayload.ID, ModVersionPayload.VersionPayload.CODEC);
+        PayloadTypeRegistry.clientboundPlay().register(
+                org.makis.gerosmpmod.payloads.FpsCapPayload.TYPE,
+                org.makis.gerosmpmod.payloads.FpsCapPayload.CODEC
+        );
         if (FabricLoader.getInstance().getEnvironmentType() == EnvType.SERVER) commonMethods.registerModVersionEvents();
         TeleportManager.registerEvents();
         ServerMessageEvents.ALLOW_CHAT_MESSAGE.register(((message, sender, boundChatType) -> {
