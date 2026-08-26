@@ -63,6 +63,7 @@ public class GeroSmpMod implements ModInitializer {
             SpawnCommand.register(dispatcher);
             BroadcastCommand.register(dispatcher);
             ChatUtilsCommand.register(dispatcher);
+            StationsCommand.register(dispatcher);
         }));
         UseBlockCallback.EVENT.register(((player, level, hand, hitResult) -> {
             BlockState state = level.getBlockState(hitResult.getBlockPos());
